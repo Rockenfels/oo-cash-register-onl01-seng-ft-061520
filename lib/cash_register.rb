@@ -42,12 +42,12 @@ class CashRegister
   
   def void_last_transaction
     binding.pry
-    if @items.length >= 1
+    if @items.length != 0
       item = @items.pop
       price = item[1]
       @total -= price
     else 
-      0.0
+      return 0.0
     end
   end
 end
