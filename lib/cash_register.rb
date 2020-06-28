@@ -8,14 +8,14 @@ class CashRegister
   def initialize(discount=nil)
       @total = 0
       @discount = discount
-      @items = {}
+      @items = []
   end
   
   def add_item(title, price, quantity=1)
      @total += price * quantity
      added = 0
      until added == quantity
-       @items[title] = {price => price, quantity => quatntity}
+       @items << [title, price]
        added += 1
      end
   end
@@ -33,8 +33,11 @@ class CashRegister
   end
   
   def items 
-    @items.keys
-    binding.pry
+    pulls = []
+    @items.each do |item|
+      pulls << item[0]
+    end
+    pulls
   end
   
   def void_last_transaction
