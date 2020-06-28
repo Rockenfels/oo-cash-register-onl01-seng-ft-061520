@@ -40,8 +40,7 @@ class CashRegister
     pulls
   end
   
-  def void_last_transaction
-    binding.pry
+  def void_last_transactionlearn 
     if @items.length != 0
       item = @items.pop
       if item[2] == 1
