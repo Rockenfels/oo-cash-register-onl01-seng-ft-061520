@@ -6,7 +6,7 @@ class CashRegister
   
   
   def initialize(discount=nil)
-      @total = 0
+      @total = 0.to_f
       @discount = discount
       @items = []
   end
@@ -24,9 +24,9 @@ class CashRegister
     if @discount
        discount_multiplier = @discount.to_f
        discount_multiplier /= 100
-       discount = (@total * discount_multiplier).to_int
+       discount = (@total * discount_multiplier)
        @total -= discount
-       return "After the discount, the total comes to $#{@total}."
+       return "After the discount, the total comes to $#{@total.to_int}."
     else
        return "There is no discount to apply."
     end
@@ -41,6 +41,8 @@ class CashRegister
   end
   
   def void_last_transaction
-    
+    item = @items.pop
+    price = item[1]
+    @total -= price
   end
 end
