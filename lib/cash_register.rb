@@ -16,6 +16,7 @@ class CashRegister
      added = 0
      until added == quantity
        @items << title
+       added += 1
      end
   end
   
