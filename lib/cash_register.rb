@@ -41,6 +41,7 @@ class CashRegister
   end
   
   def void_last_transaction
+    binding.pry
     if @items.length >= 1
       item = @items.pop
       price = item[1]
