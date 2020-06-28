@@ -50,6 +50,7 @@ class CashRegister
       else
         price = item[1] * item[2]
         @total -= price
+      end
     else 
       return 0.0
     end
