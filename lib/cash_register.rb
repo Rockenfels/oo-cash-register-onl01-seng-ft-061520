@@ -15,7 +15,7 @@ class CashRegister
      @total += price * quantity
      added = 0
      until added == quantity
-       @items << [title, price]
+       @items << [title, price, quantity]
        added += 1
      end
   end
@@ -44,8 +44,12 @@ class CashRegister
     binding.pry
     if @items.length != 0
       item = @items.pop
-      price = item[1]
-      @total -= price
+      if item[2] == 1
+        price = item[1]
+        @total -= price
+      else
+        price = item[1] * item[2]
+        @total -= price
     else 
       return 0.0
     end
